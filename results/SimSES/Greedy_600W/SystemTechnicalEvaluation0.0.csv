@@ -1,0 +1,19 @@
+Efficiency round trip,89.06,%
+SOC mean,11.01,%
+SOC max,100.00,%
+SOC min,0.00,%
+Number of changes of signs per day,1.91,
+Avg. length of resting times,1302.06,min
+Pos. energy between changes of sign,40.73,%
+Avg. Fulfillment Factor,20.30,%
+Remaining capacity,79.42,%
+Energy throughput,259.09,kWh
+DC_DC efficiency charge,100.00,%
+DC_DC efficiency discharge,100.00,%
+DC_DC efficiency total,100.00,%
+AC_DC efficiency charge,95.39,%
+AC_DC efficiency discharge,93.72,%
+AC_DC efficiency total,89.40,%
+Power electronics efficiency total,89.40,%
+Max. load of additional dc power,0.00,W
+Max. generation of additional dc power,0.00,W

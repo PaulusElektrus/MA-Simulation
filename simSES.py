@@ -1,9 +1,11 @@
+# https://gitlab.lrz.de/open-ees-ses/simses
+
 import os
 from simses.main import SimSES
 from configparser import ConfigParser
 
 # Battery
-power = 200  # W
+power = 600  # W
 capacity = 1000  # Wh
 
 # Household
@@ -12,8 +14,8 @@ pv_installed_capacity = 600  # Wp
 
 # Costs & Other
 loop_years = 1  # a
-investment_costs = 1000  # €
-electricity_price = 0.373  # €/kWh
+investment_costs = 600  # €
+electricity_price = 0.40  # €/kWh
 pv_feedin_tariff = 0.0  # €/kWh
 discount_rate = 0.02
 
@@ -29,8 +31,8 @@ STRATEGY = ResidentialPvGreedy
 
 [BATTERY]
 START_SOC = 0.5
-MIN_SOC = 0.1
-MAX_SOC = 0.9
+MIN_SOC = 0
+MAX_SOC = 1
 
 [STORAGE_SYSTEM]
 ; Configuration of the AC storage system:

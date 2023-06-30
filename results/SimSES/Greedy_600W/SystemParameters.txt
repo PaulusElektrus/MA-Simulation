@@ -1,0 +1,3 @@
+[System]
+parameters = {'power_distribution': 'EqualPowerDistributor', 'subsystems': [{'system': 'StorageSystemAC', 'id': '1', 'power_distribution': 'EqualPowerDistributor', 'number_of_containers': 0, 'container_type': 'NoHousing', 'acdc_converter': 'NottonAcDcConverter', 'auxiliaries': [], 'subsystems': [{'system': 'StorageSystemDC', 'id': '1.1', 'technology': 'LithiumIonBattery', 'dcdc_converter': 'NoLossDcDcConverter', 'cell_type': 'GenericCell', 'nominal_voltage': 38, 'battery_circuit': '11s10p'}]}]}
+

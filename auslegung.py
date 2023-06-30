@@ -84,15 +84,13 @@ def greedy_strategy(
             # charge
             power = min(abs(residual), max_power_charge)
             soc_new = min(soc + (power * dt * eff_charge) / capacity, 1.0)
+            power_real = -(soc_new - soc) * capacity / dt * (1 / eff_charge)
         else:
             # discharge
             power = min(abs(residual), max_power_discharge)
             soc_new = max(soc - (power * dt * (1 / eff_discharge)) / capacity, 0.0)
+            power_real = -(soc_new - soc) * capacity / dt * eff_discharge
 
-        # battery power, soc state and power exchange with the grid
-        power_real = (
-            -(soc_new - soc) / dt * capacity
-        )  # positive -> charge / negative -> discharge
         grid = residual - power_real
         soc = soc_new
 
@@ -112,17 +110,49 @@ if __name__ == "__main__":
     feedin_tariff = 0.00
     eff_charge = 0.85
     eff_discharge = 0.8
-    
-    # name = "Simulation1.0"
-    # max_power_charge = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
-    # max_power_discharge = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
-    # capacity = [0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5]
-    
-    name = "Simulation2.0"
+
+    """notrun
+    name = "Simulation1"
+    max_power_charge = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+    max_power_discharge = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+    capacity = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 3]
+    """
+
+    """processed
+    name = "Simulation2"
     max_power_charge = [0.4, 0.5, 0.6, 0.7]
     max_power_discharge = [0.1, 0.2, 0.3, 0.4]
     capacity = [0.9, 1, 1.1, 1.2]
+    """
+
+    """processed
+    name = "Simulation3"
+    max_power_charge = [0.6]
+    max_power_discharge = [0.3]
+    capacity = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4]
+    """
     
+    """processed
+    name = "Simulation4"
+    max_power_charge = [0.4, 0.5, 0.6, 0.7, 0.8]
+    max_power_discharge = [0.4, 0.5, 0.6, 0.7, 0.8]
+    capacity = [0.75, 1, 1.25, 1.5]
+    """
+    
+    """processed
+    name = "Simulation5"
+    max_power_charge = [0.4, 0.5, 0.6, 0.7, 0.8]
+    max_power_discharge = [0.1, 0.2, 0.3, 0.4, 0.5]
+    capacity = [1.5]
+    """
+    
+    """processed
+    name = "Simulation6"
+    max_power_charge = [0.5, 0.6, 0.7, 0.8]
+    max_power_discharge = [0.2, 0.3, 0.4, 0.5]
+    capacity = [1.5]
+    """
+
     initial_soc = 0.5
     dt = 0.25
 
@@ -223,5 +253,5 @@ if __name__ == "__main__":
                     print("\n")
 
     results.to_csv("./results/auslegung/auslegung" + name + ".csv")
-    
+
     print(results)
