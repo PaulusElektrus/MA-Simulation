@@ -111,12 +111,12 @@ if __name__ == "__main__":
     eff_charge = 0.85
     eff_discharge = 0.8
 
-    """notrun
+    #"""running
     name = "Simulation1"
     max_power_charge = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
     max_power_discharge = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
-    capacity = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 3]
-    """
+    capacity = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3]
+    #"""
 
     """processed
     name = "Simulation2"
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     name = "Simulation3"
     max_power_charge = [0.6]
     max_power_discharge = [0.3]
-    capacity = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4]
+    capacity = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.5, 4.0]
     """
     
     """processed
