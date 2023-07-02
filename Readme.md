@@ -16,4 +16,8 @@ Can be found under /results
 
 - auslegung.py in /auslegung as .csv and .ods
 
+# Plots 
+
+Can be found [here](https://github.com/PaulusElektrus/MA-Plots/tree/main/Simulation/results).
+
 

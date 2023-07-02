@@ -110,13 +110,17 @@ if __name__ == "__main__":
     feedin_tariff = 0.00
     eff_charge = 0.85
     eff_discharge = 0.8
+    initial_soc = 0.5
+    dt = 0.25
+    
+    # Choose Simulation here:
 
-    #"""running
+    """processed
     name = "Simulation1"
     max_power_charge = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
     max_power_discharge = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
     capacity = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3]
-    #"""
+    """
 
     """processed
     name = "Simulation2"
@@ -143,18 +147,22 @@ if __name__ == "__main__":
     name = "Simulation5"
     max_power_charge = [0.4, 0.5, 0.6, 0.7, 0.8]
     max_power_discharge = [0.1, 0.2, 0.3, 0.4, 0.5]
-    capacity = [1.5]
+    capacity = [1]
     """
     
     """processed
     name = "Simulation6"
     max_power_charge = [0.5, 0.6, 0.7, 0.8]
     max_power_discharge = [0.2, 0.3, 0.4, 0.5]
-    capacity = [1.5]
+    capacity = [1]
     """
-
-    initial_soc = 0.5
-    dt = 0.25
+    
+    #"""processed
+    name = "Simulation7"
+    max_power_charge = [0.1, 0.3, 0.5, 0.7, 0.9, 1.1]
+    max_power_discharge = [0.1, 0.3, 0.5, 0.7, 0.9, 1.1]
+    capacity = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5]
+    #"""
 
     # Original data
     profile = pd.read_csv("./data/household_profile.csv", index_col=0, parse_dates=True)
