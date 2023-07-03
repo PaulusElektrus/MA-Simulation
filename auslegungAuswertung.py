@@ -111,9 +111,9 @@ if __name__ == "__main__":
     eff_charge = 0.85
     eff_discharge = 0.8
 
-    max_power_charge = 0.6
-    max_power_discharge = 0.1
-    capacity = 1
+    max_power_charge = 0.504
+    max_power_discharge = 0.3
+    capacity = 1.23
 
     initial_soc = 0.5
     dt = 0.25
@@ -181,11 +181,6 @@ if __name__ == "__main__":
         dt,
     )
 
-    plt.plot(df_greedy["residual"])
-    plt.plot(df_greedy["power"])
-    plt.show()
-    # df_greedy["soc"].plot(template=template, labels={"value": "SOC
-
     costs = electricity_costs(df_greedy["grid"], electricity_price, feedin_tariff)
 
     ssr = self_sufficiency(df_greedy["grid"], df_greedy["load"])
@@ -206,3 +201,49 @@ if __name__ == "__main__":
     )
 
     print(results)
+    
+    ######################################################
+    
+    plt.subplot(2,1,1)
+    
+    plt.plot(df_greedy["residual"])
+    plt.plot(df_greedy["power"])
+    
+    plt.ylabel('Leistung [kW]')
+    plt.yticks([-0.5, 0, 0.5, 1, 1.5, 2, 2.5])
+    
+    plt.legend(["Residuallast", "Speicherleistung"], loc="upper left")
+    
+    plt.subplot(2,1,2)
+    
+    # plt.show()
+    
+    plt.plot(df_greedy["soc"])
+    
+    plt.ylabel('Ladezustand [%]')
+    
+    plt.tight_layout()
+    
+    plt.savefig('plots/timeline.svg', format='svg', dpi=1200)
+    plt.clf()
+    
+    ######################################################
+    
+    plt.subplot(2,1,1)
+    
+    plt.hist(df_greedy["power"], bins=16)
+    #plt.yscale('log')
+    plt.xlabel("Speicherleistung [kW]")
+    plt.ylabel("Anzahl")
+    
+    plt.subplot(2,1,2)
+    
+    plt.hist(df_greedy["soc"], bins=20)
+    #plt.yscale('log')
+    plt.xlabel("Ladezustand [%]")
+    plt.ylabel("Anzahl")
+    
+    plt.tight_layout()
+    
+    plt.savefig('plots/histogram.svg', format='svg', dpi=1200)
+    plt.clf()
