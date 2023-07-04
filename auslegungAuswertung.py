@@ -202,6 +202,25 @@ if __name__ == "__main__":
 
     print(results)
     
+    plt.subplot(2,1,1)
+    
+    plt.plot(profile["load"])
+    
+    plt.ylabel('Haushaltsleistung [kW]')
+    
+    plt.subplot(2,1,2)
+    
+    # plt.show()
+    
+    plt.plot(profile["pv"])
+    
+    plt.ylabel('PV Leistung [kW]')
+    
+    plt.tight_layout()
+    
+    plt.savefig('plots/profile.svg', format='svg', dpi=1200)
+    plt.clf()
+    
     ######################################################
     
     plt.subplot(2,1,1)
@@ -232,18 +251,22 @@ if __name__ == "__main__":
     plt.subplot(2,1,1)
     
     plt.hist(df_greedy["power"], bins=16)
-    #plt.yscale('log')
+    plt.yscale('log', nonpositive='clip')
     plt.xlabel("Speicherleistung [kW]")
     plt.ylabel("Anzahl")
+    plt.ylim(bottom=1)
+    plt.gca().set_yticklabels(['{:.0f}'.format(tick) for tick in plt.gca().get_yticks()])
     
     plt.subplot(2,1,2)
     
     plt.hist(df_greedy["soc"], bins=20)
-    #plt.yscale('log')
+    plt.yscale('log', nonpositive='clip')
     plt.xlabel("Ladezustand [%]")
     plt.ylabel("Anzahl")
+    plt.ylim(bottom=1)
+    plt.gca().set_yticklabels(['{:.0f}'.format(tick) for tick in plt.gca().get_yticks()])
     
     plt.tight_layout()
     
-    plt.savefig('plots/histogram.svg', format='svg', dpi=1200)
+    plt.savefig('plots/histogram.png', format='png', dpi=1200)
     plt.clf()
