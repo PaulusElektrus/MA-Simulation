@@ -237,7 +237,7 @@ if __name__ == "__main__":
     
     # plt.show()
     
-    plt.plot(df_greedy["soc"])
+    plt.plot(df_greedy["soc"]*100)
     
     plt.ylabel('Ladezustand [%]')
     
@@ -259,7 +259,7 @@ if __name__ == "__main__":
     
     plt.subplot(2,1,2)
     
-    plt.hist(df_greedy["soc"], bins=20)
+    plt.hist(df_greedy["soc"]*100, bins=20)
     plt.yscale('log', nonpositive='clip')
     plt.xlabel("Ladezustand [%]")
     plt.ylabel("Anzahl")
